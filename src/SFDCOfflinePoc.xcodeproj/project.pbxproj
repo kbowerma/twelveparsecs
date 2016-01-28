@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B365D251C564174005EBCAD /* ActionsPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CF71C564174005EBCAD /* ActionsPopupController.m */; };
+		4B365D261C564174005EBCAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CF91C564174005EBCAD /* AppDelegate.m */; };
+		4B365D271C564174005EBCAD /* BaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CFB1C564174005EBCAD /* BaseListViewController.m */; };
+		4B365D281C564174005EBCAD /* ContactDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CFD1C564174005EBCAD /* ContactDetailViewController.m */; };
+		4B365D291C564174005EBCAD /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CFF1C564174005EBCAD /* ContactListViewController.m */; };
+		4B365D2B1C564174005EBCAD /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D031C564174005EBCAD /* ProductDetailViewController.m */; };
+		4B365D2C1C564174005EBCAD /* ProductsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D051C564174005EBCAD /* ProductsListViewController.m */; };
+		4B365D2D1C564174005EBCAD /* SampleRequestDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D071C564174005EBCAD /* SampleRequestDetailViewController.m */; };
+		4B365D2E1C564174005EBCAD /* SampleRequestListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D091C564174005EBCAD /* SampleRequestListViewController.m */; };
+		4B365D2F1C564174005EBCAD /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D0B1C564174005EBCAD /* TabBarViewController.m */; };
+		4B365D301C564174005EBCAD /* ContactSObjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D0E1C564174005EBCAD /* ContactSObjectData.m */; };
+		4B365D311C564174005EBCAD /* ContactSObjectDataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D101C564174005EBCAD /* ContactSObjectDataSpec.m */; };
+		4B365D321C564174005EBCAD /* ProductSObjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D121C564174005EBCAD /* ProductSObjectData.m */; };
+		4B365D331C564174005EBCAD /* ProductSObjectDataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D141C564174005EBCAD /* ProductSObjectDataSpec.m */; };
+		4B365D341C564174005EBCAD /* SampleRequestSObjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D161C564174005EBCAD /* SampleRequestSObjectData.m */; };
+		4B365D351C564174005EBCAD /* SampleRequestSObjectDataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D181C564174005EBCAD /* SampleRequestSObjectDataSpec.m */; };
+		4B365D361C564174005EBCAD /* SObjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D1B1C564174005EBCAD /* SObjectData.m */; };
+		4B365D371C564174005EBCAD /* SObjectDataFieldSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D1D1C564174005EBCAD /* SObjectDataFieldSpec.m */; };
+		4B365D381C564174005EBCAD /* SObjectDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D1F1C564174005EBCAD /* SObjectDataManager.m */; };
+		4B365D391C564174005EBCAD /* SObjectDataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D211C564174005EBCAD /* SObjectDataSpec.m */; };
+		4B365D3A1C564174005EBCAD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365D241C564174005EBCAD /* Reachability.m */; };
+		4BDBFEE31C56C78000F1535A /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBFEE21C56C78000F1535A /* InitialViewController.m */; };
+		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
+		4F8D5EAE1B6C0568005E64D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8D5EAD1B6C0568005E64D4 /* Images.xcassets */; };
+		E1969A9109908BCE0A0D54EA /* Pods_SFDCOfflinePoc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1EC3022DCD1446B2FE4D18 /* Pods_SFDCOfflinePoc.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4B365CF61C564174005EBCAD /* ActionsPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionsPopupController.h; sourceTree = "<group>"; };
+		4B365CF71C564174005EBCAD /* ActionsPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionsPopupController.m; sourceTree = "<group>"; };
+		4B365CF81C564174005EBCAD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4B365CF91C564174005EBCAD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4B365CFA1C564174005EBCAD /* BaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseListViewController.h; sourceTree = "<group>"; };
+		4B365CFB1C564174005EBCAD /* BaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseListViewController.m; sourceTree = "<group>"; };
+		4B365CFC1C564174005EBCAD /* ContactDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDetailViewController.h; sourceTree = "<group>"; };
+		4B365CFD1C564174005EBCAD /* ContactDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDetailViewController.m; sourceTree = "<group>"; };
+		4B365CFE1C564174005EBCAD /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
+		4B365CFF1C564174005EBCAD /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
+		4B365D021C564174005EBCAD /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		4B365D031C564174005EBCAD /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		4B365D041C564174005EBCAD /* ProductsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsListViewController.h; sourceTree = "<group>"; };
+		4B365D051C564174005EBCAD /* ProductsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsListViewController.m; sourceTree = "<group>"; };
+		4B365D061C564174005EBCAD /* SampleRequestDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleRequestDetailViewController.h; sourceTree = "<group>"; };
+		4B365D071C564174005EBCAD /* SampleRequestDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleRequestDetailViewController.m; sourceTree = "<group>"; };
+		4B365D081C564174005EBCAD /* SampleRequestListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleRequestListViewController.h; sourceTree = "<group>"; };
+		4B365D091C564174005EBCAD /* SampleRequestListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleRequestListViewController.m; sourceTree = "<group>"; };
+		4B365D0A1C564174005EBCAD /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		4B365D0B1C564174005EBCAD /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		4B365D0D1C564174005EBCAD /* ContactSObjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactSObjectData.h; sourceTree = "<group>"; };
+		4B365D0E1C564174005EBCAD /* ContactSObjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactSObjectData.m; sourceTree = "<group>"; };
+		4B365D0F1C564174005EBCAD /* ContactSObjectDataSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactSObjectDataSpec.h; sourceTree = "<group>"; };
+		4B365D101C564174005EBCAD /* ContactSObjectDataSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactSObjectDataSpec.m; sourceTree = "<group>"; };
+		4B365D111C564174005EBCAD /* ProductSObjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductSObjectData.h; sourceTree = "<group>"; };
+		4B365D121C564174005EBCAD /* ProductSObjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSObjectData.m; sourceTree = "<group>"; };
+		4B365D131C564174005EBCAD /* ProductSObjectDataSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductSObjectDataSpec.h; sourceTree = "<group>"; };
+		4B365D141C564174005EBCAD /* ProductSObjectDataSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSObjectDataSpec.m; sourceTree = "<group>"; };
+		4B365D151C564174005EBCAD /* SampleRequestSObjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleRequestSObjectData.h; sourceTree = "<group>"; };
+		4B365D161C564174005EBCAD /* SampleRequestSObjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleRequestSObjectData.m; sourceTree = "<group>"; };
+		4B365D171C564174005EBCAD /* SampleRequestSObjectDataSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleRequestSObjectDataSpec.h; sourceTree = "<group>"; };
+		4B365D181C564174005EBCAD /* SampleRequestSObjectDataSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleRequestSObjectDataSpec.m; sourceTree = "<group>"; };
+		4B365D191C564174005EBCAD /* SObjectData+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SObjectData+Internal.h"; sourceTree = "<group>"; };
+		4B365D1A1C564174005EBCAD /* SObjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SObjectData.h; sourceTree = "<group>"; };
+		4B365D1B1C564174005EBCAD /* SObjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SObjectData.m; sourceTree = "<group>"; };
+		4B365D1C1C564174005EBCAD /* SObjectDataFieldSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SObjectDataFieldSpec.h; sourceTree = "<group>"; };
+		4B365D1D1C564174005EBCAD /* SObjectDataFieldSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SObjectDataFieldSpec.m; sourceTree = "<group>"; };
+		4B365D1E1C564174005EBCAD /* SObjectDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SObjectDataManager.h; sourceTree = "<group>"; };
+		4B365D1F1C564174005EBCAD /* SObjectDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SObjectDataManager.m; sourceTree = "<group>"; };
+		4B365D201C564174005EBCAD /* SObjectDataSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SObjectDataSpec.h; sourceTree = "<group>"; };
+		4B365D211C564174005EBCAD /* SObjectDataSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SObjectDataSpec.m; sourceTree = "<group>"; };
+		4B365D231C564174005EBCAD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		4B365D241C564174005EBCAD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		4BDBFEE11C56C78000F1535A /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		4BDBFEE21C56C78000F1535A /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		4F8D5E9D1B6C0568005E64D4 /* SFDCOfflinePoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFDCOfflinePoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F8D5EA11B6C0568005E64D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F8D5EA21B6C0568005E64D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4F8D5EAD1B6C0568005E64D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		641A79C6255C9F5C2DC614D8 /* Pods-SFDCOfflinePoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFDCOfflinePoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-SFDCOfflinePoc/Pods-SFDCOfflinePoc.release.xcconfig"; sourceTree = "<group>"; };
+		90400F35EE8FD2C6D3B8B7E7 /* Pods-SFDCOfflinePoc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFDCOfflinePoc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SFDCOfflinePoc/Pods-SFDCOfflinePoc.debug.xcconfig"; sourceTree = "<group>"; };
+		9D1EC3022DCD1446B2FE4D18 /* Pods_SFDCOfflinePoc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SFDCOfflinePoc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F8D5E9A1B6C0568005E64D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1969A9109908BCE0A0D54EA /* Pods_SFDCOfflinePoc.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37B95F29A292887A2CC072C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D1EC3022DCD1446B2FE4D18 /* Pods_SFDCOfflinePoc.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B365CF51C564174005EBCAD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4B365CF61C564174005EBCAD /* ActionsPopupController.h */,
+				4B365CF71C564174005EBCAD /* ActionsPopupController.m */,
+				4B365CF81C564174005EBCAD /* AppDelegate.h */,
+				4B365CF91C564174005EBCAD /* AppDelegate.m */,
+				4B365CFA1C564174005EBCAD /* BaseListViewController.h */,
+				4B365CFB1C564174005EBCAD /* BaseListViewController.m */,
+				4B365CFC1C564174005EBCAD /* ContactDetailViewController.h */,
+				4B365CFD1C564174005EBCAD /* ContactDetailViewController.m */,
+				4B365CFE1C564174005EBCAD /* ContactListViewController.h */,
+				4B365CFF1C564174005EBCAD /* ContactListViewController.m */,
+				4BDBFEE11C56C78000F1535A /* InitialViewController.h */,
+				4BDBFEE21C56C78000F1535A /* InitialViewController.m */,
+				4B365D021C564174005EBCAD /* ProductDetailViewController.h */,
+				4B365D031C564174005EBCAD /* ProductDetailViewController.m */,
+				4B365D041C564174005EBCAD /* ProductsListViewController.h */,
+				4B365D051C564174005EBCAD /* ProductsListViewController.m */,
+				4B365D061C564174005EBCAD /* SampleRequestDetailViewController.h */,
+				4B365D071C564174005EBCAD /* SampleRequestDetailViewController.m */,
+				4B365D081C564174005EBCAD /* SampleRequestListViewController.h */,
+				4B365D091C564174005EBCAD /* SampleRequestListViewController.m */,
+				4B365D0A1C564174005EBCAD /* TabBarViewController.h */,
+				4B365D0B1C564174005EBCAD /* TabBarViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4B365D0C1C564174005EBCAD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4B365D0D1C564174005EBCAD /* ContactSObjectData.h */,
+				4B365D0E1C564174005EBCAD /* ContactSObjectData.m */,
+				4B365D0F1C564174005EBCAD /* ContactSObjectDataSpec.h */,
+				4B365D101C564174005EBCAD /* ContactSObjectDataSpec.m */,
+				4B365D111C564174005EBCAD /* ProductSObjectData.h */,
+				4B365D121C564174005EBCAD /* ProductSObjectData.m */,
+				4B365D131C564174005EBCAD /* ProductSObjectDataSpec.h */,
+				4B365D141C564174005EBCAD /* ProductSObjectDataSpec.m */,
+				4B365D151C564174005EBCAD /* SampleRequestSObjectData.h */,
+				4B365D161C564174005EBCAD /* SampleRequestSObjectData.m */,
+				4B365D171C564174005EBCAD /* SampleRequestSObjectDataSpec.h */,
+				4B365D181C564174005EBCAD /* SampleRequestSObjectDataSpec.m */,
+				4B365D191C564174005EBCAD /* SObjectData+Internal.h */,
+				4B365D1A1C564174005EBCAD /* SObjectData.h */,
+				4B365D1B1C564174005EBCAD /* SObjectData.m */,
+				4B365D1C1C564174005EBCAD /* SObjectDataFieldSpec.h */,
+				4B365D1D1C564174005EBCAD /* SObjectDataFieldSpec.m */,
+				4B365D1E1C564174005EBCAD /* SObjectDataManager.h */,
+				4B365D1F1C564174005EBCAD /* SObjectDataManager.m */,
+				4B365D201C564174005EBCAD /* SObjectDataSpec.h */,
+				4B365D211C564174005EBCAD /* SObjectDataSpec.m */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4B365D221C564174005EBCAD /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				4B365D231C564174005EBCAD /* Reachability.h */,
+				4B365D241C564174005EBCAD /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		4F8D5E941B6C0568005E64D4 = {
+			isa = PBXGroup;
+			children = (
+				4F8D5E9F1B6C0568005E64D4 /* SFDCOfflinePoc */,
+				4F8D5E9E1B6C0568005E64D4 /* Products */,
+				95FC818BCB0A26B1EC67A6D7 /* Pods */,
+				37B95F29A292887A2CC072C3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4F8D5E9E1B6C0568005E64D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F8D5E9D1B6C0568005E64D4 /* SFDCOfflinePoc.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F8D5E9F1B6C0568005E64D4 /* SFDCOfflinePoc */ = {
+			isa = PBXGroup;
+			children = (
+				4B365CF51C564174005EBCAD /* Classes */,
+				4B365D0C1C564174005EBCAD /* Data */,
+				4B365D221C564174005EBCAD /* Reachability */,
+				4F8D5EA01B6C0568005E64D4 /* Supporting Files */,
+			);
+			path = SFDCOfflinePoc;
+			sourceTree = "<group>";
+		};
+		4F8D5EA01B6C0568005E64D4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4F8D5EAD1B6C0568005E64D4 /* Images.xcassets */,
+				4F8D5EA11B6C0568005E64D4 /* Info.plist */,
+				4F8D5EA21B6C0568005E64D4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95FC818BCB0A26B1EC67A6D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90400F35EE8FD2C6D3B8B7E7 /* Pods-SFDCOfflinePoc.debug.xcconfig */,
+				641A79C6255C9F5C2DC614D8 /* Pods-SFDCOfflinePoc.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F8D5E9C1B6C0568005E64D4 /* SFDCOfflinePoc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "SFDCOfflinePoc" */;
+			buildPhases = (
+				39F115428CDB04A31C62D5B3 /* Check Pods Manifest.lock */,
+				4F8D5E991B6C0568005E64D4 /* Sources */,
+				4F8D5E9A1B6C0568005E64D4 /* Frameworks */,
+				4F8D5E9B1B6C0568005E64D4 /* Resources */,
+				E57672B616CE5ACD1EACF7C8 /* Copy Pods Resources */,
+				619AA38C8EAE8D81D0A1FBDC /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SFDCOfflinePoc;
+			productName = SFDCOfflinePoc;
+			productReference = 4F8D5E9D1B6C0568005E64D4 /* SFDCOfflinePoc.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F8D5E951B6C0568005E64D4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = Salesforce;
+				TargetAttributes = {
+					4F8D5E9C1B6C0568005E64D4 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = 4F8D5E981B6C0568005E64D4 /* Build configuration list for PBXProject "SFDCOfflinePoc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F8D5E941B6C0568005E64D4;
+			productRefGroup = 4F8D5E9E1B6C0568005E64D4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F8D5E9C1B6C0568005E64D4 /* SFDCOfflinePoc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F8D5E9B1B6C0568005E64D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F8D5EAE1B6C0568005E64D4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39F115428CDB04A31C62D5B3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		619AA38C8EAE8D81D0A1FBDC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SFDCOfflinePoc/Pods-SFDCOfflinePoc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E57672B616CE5ACD1EACF7C8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SFDCOfflinePoc/Pods-SFDCOfflinePoc-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F8D5E991B6C0568005E64D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B365D311C564174005EBCAD /* ContactSObjectDataSpec.m in Sources */,
+				4B365D251C564174005EBCAD /* ActionsPopupController.m in Sources */,
+				4B365D291C564174005EBCAD /* ContactListViewController.m in Sources */,
+				4BDBFEE31C56C78000F1535A /* InitialViewController.m in Sources */,
+				4B365D331C564174005EBCAD /* ProductSObjectDataSpec.m in Sources */,
+				4B365D2C1C564174005EBCAD /* ProductsListViewController.m in Sources */,
+				4B365D351C564174005EBCAD /* SampleRequestSObjectDataSpec.m in Sources */,
+				4B365D341C564174005EBCAD /* SampleRequestSObjectData.m in Sources */,
+				4B365D361C564174005EBCAD /* SObjectData.m in Sources */,
+				4B365D371C564174005EBCAD /* SObjectDataFieldSpec.m in Sources */,
+				4B365D2E1C564174005EBCAD /* SampleRequestListViewController.m in Sources */,
+				4B365D2F1C564174005EBCAD /* TabBarViewController.m in Sources */,
+				4B365D301C564174005EBCAD /* ContactSObjectData.m in Sources */,
+				4B365D271C564174005EBCAD /* BaseListViewController.m in Sources */,
+				4B365D391C564174005EBCAD /* SObjectDataSpec.m in Sources */,
+				4B365D2B1C564174005EBCAD /* ProductDetailViewController.m in Sources */,
+				4F8D5EA31B6C0568005E64D4 /* main.m in Sources */,
+				4B365D321C564174005EBCAD /* ProductSObjectData.m in Sources */,
+				4B365D3A1C564174005EBCAD /* Reachability.m in Sources */,
+				4B365D261C564174005EBCAD /* AppDelegate.m in Sources */,
+				4B365D2D1C564174005EBCAD /* SampleRequestDetailViewController.m in Sources */,
+				4B365D381C564174005EBCAD /* SObjectDataManager.m in Sources */,
+				4B365D281C564174005EBCAD /* ContactDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4F8D5EBE1B6C0568005E64D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F8D5EBF1B6C0568005E64D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F8D5EC11B6C0568005E64D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90400F35EE8FD2C6D3B8B7E7 /* Pods-SFDCOfflinePoc.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SFDCOfflinePoc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4F8D5EC21B6C0568005E64D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 641A79C6255C9F5C2DC614D8 /* Pods-SFDCOfflinePoc.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SFDCOfflinePoc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F8D5E981B6C0568005E64D4 /* Build configuration list for PBXProject "SFDCOfflinePoc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F8D5EBE1B6C0568005E64D4 /* Debug */,
+				4F8D5EBF1B6C0568005E64D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "SFDCOfflinePoc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F8D5EC11B6C0568005E64D4 /* Debug */,
+				4F8D5EC21B6C0568005E64D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F8D5E951B6C0568005E64D4 /* Project object */;
+}

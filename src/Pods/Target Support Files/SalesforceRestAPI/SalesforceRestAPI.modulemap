@@ -1,0 +1,6 @@
+framework module SalesforceRestAPI {
+  umbrella header "SalesforceRestAPI-umbrella.h"
+
+  export *
+  module * { export * }
+}

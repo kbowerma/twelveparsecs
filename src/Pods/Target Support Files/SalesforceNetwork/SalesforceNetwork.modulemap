@@ -1,0 +1,6 @@
+framework module SalesforceNetwork {
+  umbrella header "SalesforceNetwork-umbrella.h"
+
+  export *
+  module * { export * }
+}

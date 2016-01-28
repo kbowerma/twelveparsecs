@@ -1,0 +1,75 @@
+PODS:
+  - CocoaLumberjack (2.2.0):
+    - CocoaLumberjack/Default (= 2.2.0)
+    - CocoaLumberjack/Extensions (= 2.2.0)
+  - CocoaLumberjack/Core (2.2.0)
+  - CocoaLumberjack/Default (2.2.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.2.0):
+    - CocoaLumberjack/Default
+  - FMDB (4.0.2):
+    - FMDB/FMDB (= 4.0.2)
+  - FMDB/FMDB (4.0.2):
+    - SQLCipher/fts (~> 3.3.1)
+  - SalesforceNetwork (4.0.2):
+    - SalesforceNetwork/SalesforceNetwork (= 4.0.2)
+  - SalesforceNetwork/SalesforceNetwork (4.0.2):
+    - SalesforceSDKCore
+  - SalesforceRestAPI (4.0.2):
+    - SalesforceRestAPI/SalesforceRestAPI (= 4.0.2)
+  - SalesforceRestAPI/SalesforceRestAPI (4.0.2):
+    - SalesforceNetwork
+    - SalesforceSDKCore
+  - SalesforceSDKCore (4.0.2):
+    - SalesforceSDKCore/SalesforceSDKCore (= 4.0.2)
+  - SalesforceSDKCore/SalesforceSDKCore (4.0.2):
+    - CocoaLumberjack (~> 2.2.0)
+    - SalesforceSDKCore/SalesforceSDKCore/arc (= 4.0.2)
+    - SalesforceSDKCore/SalesforceSDKCore/base (= 4.0.2)
+    - SalesforceSDKCore/SalesforceSDKCore/no-arc (= 4.0.2)
+  - SalesforceSDKCore/SalesforceSDKCore/arc (4.0.2):
+    - CocoaLumberjack (~> 2.2.0)
+    - SalesforceSDKCore/SalesforceSDKCore/base
+    - SalesforceSDKCore/SalesforceSDKCore/no-arc
+  - SalesforceSDKCore/SalesforceSDKCore/base (4.0.2):
+    - CocoaLumberjack (~> 2.2.0)
+  - SalesforceSDKCore/SalesforceSDKCore/no-arc (4.0.2):
+    - CocoaLumberjack (~> 2.2.0)
+    - SalesforceSDKCore/SalesforceSDKCore/base
+  - SmartStore (4.0.2):
+    - SmartStore/SmartStore (= 4.0.2)
+  - SmartStore/SmartStore (4.0.2):
+    - FMDB
+    - SalesforceSDKCore
+  - SmartSync (4.0.2):
+    - SmartSync/SmartSync (= 4.0.2)
+  - SmartSync/SmartSync (4.0.2):
+    - SalesforceRestAPI
+    - SalesforceSDKCore
+    - SmartStore
+  - SQLCipher/common (3.3.1)
+  - SQLCipher/fts (3.3.1):
+    - SQLCipher/common
+  - WYPopoverController (0.3.8)
+
+DEPENDENCIES:
+  - FMDB
+  - SalesforceNetwork
+  - SalesforceRestAPI
+  - SalesforceSDKCore
+  - SmartStore
+  - SmartSync
+  - WYPopoverController
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
+  FMDB: 640eb2d49ac1e6e594a1b103d5354ec6474723d4
+  SalesforceNetwork: 7ed7bdc862f4e7837eb4d61b568d919f512b4ab8
+  SalesforceRestAPI: 0749634345bd3e80c14eade7e4dbfebee61c9a59
+  SalesforceSDKCore: 31ed2ed485a043f66ca5813a5c5421cfb766a0f1
+  SmartStore: f41c5b2a192ae1b9b5edc50870ff761d797eb3d5
+  SmartSync: 6be7bac03175311cc7a72ec91d307fe5243c0ab5
+  SQLCipher: d490d2effe735895d2204d25a154b1e722278421
+  WYPopoverController: dda54780e1bef186464ae5a10ab9b4998c279e89
+
+COCOAPODS: 0.39.0

@@ -1,0 +1,6 @@
+framework module SalesforceSDKCore {
+  umbrella header "SalesforceSDKCore-umbrella.h"
+
+  export *
+  module * { export * }
+}
