@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <types>
+        <members>SampleRequest__c</members>
+          <members>Authorized_Users__c</members>
+          <members>Product__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Authorized_Users__c</members>
+        <members>Product__c</members>
+        <members>SampleRequest__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Mobile_Sales</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Contact-Contact Layout</members>
+        <members>Product__c-Product Layout</members>
+        <members>SampleRequest__c-Sample Request Layout</members>
+        <members>Authorized_Users__c-Authorized Users Layout</members>
+        <name>Layout</name>
+    </types>
+
+    <version>35.0</version>
+</Package>
