@@ -1,0 +1,19 @@
+//
+//  SFDCOfflinePoc-Prefix.pch
+//  SFDCOfflinePoc
+//
+//  Created by TCCODER on 1/31/16.
+//  Copyright © 2016 Salesforce. All rights reserved.
+//
+
+#ifndef SFDCOfflinePoc_Prefix_pch
+#define SFDCOfflinePoc_Prefix_pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+
+#define IS_IPAD ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+
+#endif
+
+#endif /* SFDCOfflinePoc_Prefix_pch */
