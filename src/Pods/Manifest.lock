@@ -11,6 +11,7 @@ PODS:
     - FMDB/FMDB (= 4.0.2)
   - FMDB/FMDB (4.0.2):
     - SQLCipher/fts (~> 3.3.1)
+  - MBProgressHUD (0.9.2)
   - SalesforceNetwork (4.0.2):
     - SalesforceNetwork/SalesforceNetwork (= 4.0.2)
   - SalesforceNetwork/SalesforceNetwork (4.0.2):
@@ -54,6 +55,7 @@ PODS:
 
 DEPENDENCIES:
   - FMDB
+  - MBProgressHUD (~> 0.9.2)
   - SalesforceNetwork
   - SalesforceRestAPI
   - SalesforceSDKCore
@@ -64,6 +66,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   FMDB: 640eb2d49ac1e6e594a1b103d5354ec6474723d4
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   SalesforceNetwork: 7ed7bdc862f4e7837eb4d61b568d919f512b4ab8
   SalesforceRestAPI: 0749634345bd3e80c14eade7e4dbfebee61c9a59
   SalesforceSDKCore: 31ed2ed485a043f66ca5813a5c5421cfb766a0f1

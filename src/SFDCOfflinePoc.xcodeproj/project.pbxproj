@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C8B685E1C5EADAC00758347 /* Configurations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8B685D1C5EADAC00758347 /* Configurations.m */; };
+		0C8B68601C5EADB400758347 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C8B685F1C5EADB400758347 /* config.plist */; };
+		0C8B68631C60011C00758347 /* ImageFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8B68621C60011C00758347 /* ImageFileManager.m */; };
+		0C8F65DC1C5D4BD6009C3AC1 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8F65D11C5D4BD6009C3AC1 /* PaintingView.m */; };
+		0C8F65DD1C5D4BD6009C3AC1 /* fileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8F65D51C5D4BD6009C3AC1 /* fileUtil.m */; };
+		0C8F65DE1C5D4BD6009C3AC1 /* shaderUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8F65D61C5D4BD6009C3AC1 /* shaderUtil.c */; };
+		0C8F65DF1C5D4BD6009C3AC1 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8F65D81C5D4BD6009C3AC1 /* Particle.png */; };
+		0C8F65E01C5D4BD6009C3AC1 /* point.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 0C8F65DA1C5D4BD6009C3AC1 /* point.fsh */; };
+		0C8F65E11C5D4BD6009C3AC1 /* point.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 0C8F65DB1C5D4BD6009C3AC1 /* point.vsh */; };
 		4B365D251C564174005EBCAD /* ActionsPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CF71C564174005EBCAD /* ActionsPopupController.m */; };
 		4B365D261C564174005EBCAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CF91C564174005EBCAD /* AppDelegate.m */; };
 		4B365D271C564174005EBCAD /* BaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CFB1C564174005EBCAD /* BaseListViewController.m */; };
@@ -35,6 +44,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C8B685A1C5E752E00758347 /* SFDCOfflinePoc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SFDCOfflinePoc-Prefix.pch"; sourceTree = "<group>"; };
+		0C8B685C1C5EADAC00758347 /* Configurations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configurations.h; sourceTree = "<group>"; };
+		0C8B685D1C5EADAC00758347 /* Configurations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configurations.m; sourceTree = "<group>"; };
+		0C8B685F1C5EADB400758347 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		0C8B68611C60011C00758347 /* ImageFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFileManager.h; sourceTree = "<group>"; };
+		0C8B68621C60011C00758347 /* ImageFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFileManager.m; sourceTree = "<group>"; };
+		0C8F65D01C5D4BD6009C3AC1 /* PaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingView.h; sourceTree = "<group>"; };
+		0C8F65D11C5D4BD6009C3AC1 /* PaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingView.m; sourceTree = "<group>"; };
+		0C8F65D31C5D4BD6009C3AC1 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		0C8F65D41C5D4BD6009C3AC1 /* fileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileUtil.h; sourceTree = "<group>"; };
+		0C8F65D51C5D4BD6009C3AC1 /* fileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fileUtil.m; sourceTree = "<group>"; };
+		0C8F65D61C5D4BD6009C3AC1 /* shaderUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shaderUtil.c; sourceTree = "<group>"; };
+		0C8F65D71C5D4BD6009C3AC1 /* shaderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shaderUtil.h; sourceTree = "<group>"; };
+		0C8F65D81C5D4BD6009C3AC1 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
+		0C8F65DA1C5D4BD6009C3AC1 /* point.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.fsh; sourceTree = "<group>"; };
+		0C8F65DB1C5D4BD6009C3AC1 /* point.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.vsh; sourceTree = "<group>"; };
 		4B365CF61C564174005EBCAD /* ActionsPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionsPopupController.h; sourceTree = "<group>"; };
 		4B365CF71C564174005EBCAD /* ActionsPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionsPopupController.m; sourceTree = "<group>"; };
 		4B365CF81C564174005EBCAD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +126,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C8F65CE1C5D4BD6009C3AC1 /* GLPaint */ = {
+			isa = PBXGroup;
+			children = (
+				0C8F65CF1C5D4BD6009C3AC1 /* Classes */,
+				0C8F65D81C5D4BD6009C3AC1 /* Particle.png */,
+				0C8F65D91C5D4BD6009C3AC1 /* Shaders */,
+			);
+			path = GLPaint;
+			sourceTree = "<group>";
+		};
+		0C8F65CF1C5D4BD6009C3AC1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0C8F65D01C5D4BD6009C3AC1 /* PaintingView.h */,
+				0C8F65D11C5D4BD6009C3AC1 /* PaintingView.m */,
+				0C8F65D21C5D4BD6009C3AC1 /* UtilSrc */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0C8F65D21C5D4BD6009C3AC1 /* UtilSrc */ = {
+			isa = PBXGroup;
+			children = (
+				0C8F65D31C5D4BD6009C3AC1 /* debug.h */,
+				0C8F65D41C5D4BD6009C3AC1 /* fileUtil.h */,
+				0C8F65D51C5D4BD6009C3AC1 /* fileUtil.m */,
+				0C8F65D61C5D4BD6009C3AC1 /* shaderUtil.c */,
+				0C8F65D71C5D4BD6009C3AC1 /* shaderUtil.h */,
+			);
+			path = UtilSrc;
+			sourceTree = "<group>";
+		};
+		0C8F65D91C5D4BD6009C3AC1 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				0C8F65DA1C5D4BD6009C3AC1 /* point.fsh */,
+				0C8F65DB1C5D4BD6009C3AC1 /* point.vsh */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 		37B95F29A292887A2CC072C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +228,8 @@
 				4B365D1F1C564174005EBCAD /* SObjectDataManager.m */,
 				4B365D201C564174005EBCAD /* SObjectDataSpec.h */,
 				4B365D211C564174005EBCAD /* SObjectDataSpec.m */,
+				0C8B68611C60011C00758347 /* ImageFileManager.h */,
+				0C8B68621C60011C00758347 /* ImageFileManager.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -199,6 +267,7 @@
 				4B365CF51C564174005EBCAD /* Classes */,
 				4B365D0C1C564174005EBCAD /* Data */,
 				4B365D221C564174005EBCAD /* Reachability */,
+				0C8F65CE1C5D4BD6009C3AC1 /* GLPaint */,
 				4F8D5EA01B6C0568005E64D4 /* Supporting Files */,
 			);
 			path = SFDCOfflinePoc;
@@ -210,6 +279,10 @@
 				4F8D5EAD1B6C0568005E64D4 /* Images.xcassets */,
 				4F8D5EA11B6C0568005E64D4 /* Info.plist */,
 				4F8D5EA21B6C0568005E64D4 /* main.m */,
+				0C8B685A1C5E752E00758347 /* SFDCOfflinePoc-Prefix.pch */,
+				0C8B685C1C5EADAC00758347 /* Configurations.h */,
+				0C8B685D1C5EADAC00758347 /* Configurations.m */,
+				0C8B685F1C5EADB400758347 /* config.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -252,7 +325,7 @@
 		4F8D5E951B6C0568005E64D4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Salesforce;
 				TargetAttributes = {
 					4F8D5E9C1B6C0568005E64D4 = {
@@ -284,6 +357,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F8D5EAE1B6C0568005E64D4 /* Images.xcassets in Resources */,
+				0C8F65DF1C5D4BD6009C3AC1 /* Particle.png in Resources */,
+				0C8F65E11C5D4BD6009C3AC1 /* point.vsh in Resources */,
+				0C8F65E01C5D4BD6009C3AC1 /* point.fsh in Resources */,
+				0C8B68601C5EADB400758347 /* config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,8 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C8F65DE1C5D4BD6009C3AC1 /* shaderUtil.c in Sources */,
 				4B365D311C564174005EBCAD /* ContactSObjectDataSpec.m in Sources */,
 				4B365D251C564174005EBCAD /* ActionsPopupController.m in Sources */,
+				0C8B68631C60011C00758347 /* ImageFileManager.m in Sources */,
 				4B365D291C564174005EBCAD /* ContactListViewController.m in Sources */,
 				4BDBFEE31C56C78000F1535A /* InitialViewController.m in Sources */,
 				4B365D331C564174005EBCAD /* ProductSObjectDataSpec.m in Sources */,
@@ -354,8 +433,10 @@
 				4B365D371C564174005EBCAD /* SObjectDataFieldSpec.m in Sources */,
 				4B365D2E1C564174005EBCAD /* SampleRequestListViewController.m in Sources */,
 				4B365D2F1C564174005EBCAD /* TabBarViewController.m in Sources */,
+				0C8F65DD1C5D4BD6009C3AC1 /* fileUtil.m in Sources */,
 				4B365D301C564174005EBCAD /* ContactSObjectData.m in Sources */,
 				4B365D271C564174005EBCAD /* BaseListViewController.m in Sources */,
+				0C8F65DC1C5D4BD6009C3AC1 /* PaintingView.m in Sources */,
 				4B365D391C564174005EBCAD /* SObjectDataSpec.m in Sources */,
 				4B365D2B1C564174005EBCAD /* ProductDetailViewController.m in Sources */,
 				4F8D5EA31B6C0568005E64D4 /* main.m in Sources */,
@@ -363,6 +444,7 @@
 				4B365D3A1C564174005EBCAD /* Reachability.m in Sources */,
 				4B365D261C564174005EBCAD /* AppDelegate.m in Sources */,
 				4B365D2D1C564174005EBCAD /* SampleRequestDetailViewController.m in Sources */,
+				0C8B685E1C5EADAC00758347 /* Configurations.m in Sources */,
 				4B365D381C564174005EBCAD /* SObjectDataManager.m in Sources */,
 				4B365D281C564174005EBCAD /* ContactDetailViewController.m in Sources */,
 			);
@@ -392,6 +474,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -459,9 +542,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SFDCOfflinePoc/SFDCOfflinePoc-Prefix.pch";
 				INFOPLIST_FILE = SFDCOfflinePoc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.topcoder.sfdcoffline.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -472,9 +558,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SFDCOfflinePoc/SFDCOfflinePoc-Prefix.pch";
 				INFOPLIST_FILE = SFDCOfflinePoc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.topcoder.sfdcoffline.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
