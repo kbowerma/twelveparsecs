@@ -86,6 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-SFDCOfflinePoc/CocoaLumberjack.framework"
   install_framework "Pods-SFDCOfflinePoc/FMDB.framework"
+  install_framework "Pods-SFDCOfflinePoc/MBProgressHUD.framework"
   install_framework "Pods-SFDCOfflinePoc/SQLCipher.framework"
   install_framework "Pods-SFDCOfflinePoc/SalesforceNetwork.framework"
   install_framework "Pods-SFDCOfflinePoc/SalesforceRestAPI.framework"
@@ -97,6 +98,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-SFDCOfflinePoc/CocoaLumberjack.framework"
   install_framework "Pods-SFDCOfflinePoc/FMDB.framework"
+  install_framework "Pods-SFDCOfflinePoc/MBProgressHUD.framework"
   install_framework "Pods-SFDCOfflinePoc/SQLCipher.framework"
   install_framework "Pods-SFDCOfflinePoc/SalesforceNetwork.framework"
   install_framework "Pods-SFDCOfflinePoc/SalesforceRestAPI.framework"

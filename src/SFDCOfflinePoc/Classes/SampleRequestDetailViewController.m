@@ -3,6 +3,8 @@
 //  SFDCOfflinePoc
 //
 //  Created by PAULO VITOR MAGACHO DA SILVA on 1/24/16.
+//  Updated by TCCODER on 1/31/16.
+//  -- added signature view & appropriate logic
 //  Copyright © 2016 Topcoder Inc. All rights reserved.
 //
 
@@ -11,10 +13,21 @@
 #import "SampleRequestSObjectData.h"
 #import "ProductSObjectData.h"
 #import "ContactSObjectData.h"
+#import "PaintingView.h"
+#import "MBProgressHUD.h"
+#import "Configurations.h"
+#import "ImageFileManager.h"
 
 #define kTagContact 1000
 #define kTagProduct 1001
 #define kTagStatus 1002
+
+// signature view height
+#define kSignatureViewHeight 160
+// signature view border
+#define kSignatureViewBorderOffset (IS_IPAD ? 90 : 15)
+
+
 
 @interface SampleRequestDetailViewController () <UIAlertViewDelegate, UITextFieldDelegate>
 
@@ -23,7 +36,7 @@
 @property (nonatomic, copy) void (^saveBlock)(void);
 @property (nonatomic, strong) NSArray *dataRows;
 @property (nonatomic, strong) NSArray *sampleRequestDataRows;
-@property (nonatomic, strong) NSArray *deleteButtonDataRow;
+@property (nonatomic, strong) NSArray *signDataRow;
 @property (nonatomic, assign) BOOL isEditing;
 @property (nonatomic, assign) BOOL sampleRequestUpdated;
 @property (nonatomic, assign) BOOL isNewSampleRequest;
@@ -35,6 +48,11 @@
 
 // View / UI properties
 @property (nonatomic, strong) UIPickerView *pickerView;
+@property (nonatomic, strong) PaintingView *paintingView;
+@property (nonatomic, strong) UIImageView *oldSignatureView;
+@property (nonatomic, strong) UIButton *signEraseButton;
+@property (nonatomic, strong) UIButton *signConfirmButton;
+@property (nonatomic, strong) UILabel *signHeaderLabel;
 
 @end
 
@@ -83,8 +101,16 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self configureInitialBarButtonItems];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.estimatedRowHeight = 44;
 
     isCurrentUser = self.isNewSampleRequest || [self.sampleRequest.ownerId isEqualToString:[SObjectDataSpec currentUserID]];
+}
+
+/**
+ *  cleanup
+ */
+- (void)dealloc {
+    [self.paintingView clearMemory];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -101,12 +127,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - UITableView delegate methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -117,12 +137,17 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return (indexPath.section < [self.sampleRequestDataRows count]) ? 44 : kSignatureViewHeight+55;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"SampleRequestDetailCellIdentifier";
 
     UITableViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
     NSArray *sampleRequestData = self.dataRows[indexPath.section];
@@ -144,9 +169,9 @@
             cell.textLabel.text = rowValueData;
         }
     } else {
-        UIButton *deleteButton = sampleRequestData[1];
-        deleteButton.frame = cell.contentView.bounds;
-        [cell.contentView addSubview:deleteButton];
+        UIView *signView = sampleRequestData[1];
+        signView.frame = cell.contentView.bounds;
+        [cell.contentView addSubview:signView];
     }
 
     return cell;
@@ -310,12 +335,12 @@
                                  ];
     }
 
-    self.deleteButtonDataRow = @[ @"", [self deleteButtonView] ];
+    self.signDataRow = @[ @"", [self makePaintingView] ];
 
     NSMutableArray *workingDataRows = [NSMutableArray array];
     [workingDataRows addObjectsFromArray:self.sampleRequestDataRows];
     if (!self.isNewSampleRequest) {
-        [workingDataRows addObject:self.deleteButtonDataRow];
+        [workingDataRows addObject:self.signDataRow];
     }
     return workingDataRows;
 }
@@ -428,15 +453,202 @@
     return textField;
 }
 
-- (UIButton *)deleteButtonView {
-    UIButton *deleteButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [deleteButton setTitle:@"Delete Sample Request" forState:UIControlStateNormal];
-    [deleteButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    deleteButton.titleLabel.font = [UIFont systemFontOfSize:18.0];
-    deleteButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    deleteButton.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
-    [deleteButton addTarget:self action:@selector(deleteSampleRequestConfirm) forControlEvents:UIControlEventTouchUpInside];
-    return deleteButton;
+/**
+ *  creates a painting view inside a view container
+ *
+ *  @return container view
+ */
+- (UIView*)makePaintingView {
+    // conatiner
+    UIView* containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kSignatureViewHeight+100)];
+    
+    // header
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(kSignatureViewBorderOffset, -1, 160, 15)];
+    label.font = [UIFont systemFontOfSize:14];
+    label.text = @"Please sign here:";
+    [containerView addSubview:label];
+    self.signHeaderLabel = label;
+    
+    // GLPaint view
+    self.paintingView = [[PaintingView alloc] initWithFrame:CGRectMake(kSignatureViewBorderOffset, 15, containerView.bounds.size.width-kSignatureViewBorderOffset*2, kSignatureViewHeight)];
+    [containerView addSubview:_paintingView];
+    [_paintingView setBrushColorWithRed:0 green:0 blue:0];
+    _paintingView.backgroundColor = [UIColor clearColor];
+    _paintingView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    // old signature
+    UIImageView* borderView = [[UIImageView alloc] initWithFrame:_paintingView.frame];
+    borderView.backgroundColor = [UIColor clearColor];
+    borderView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    borderView.layer.borderWidth = 2;
+    borderView.userInteractionEnabled = NO;
+    borderView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    borderView.image = [ImageFileManager loadImageWithID:_sampleRequest.objectId];
+    self.oldSignatureView = borderView;
+    [containerView addSubview:borderView];
+    containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
+    // block table panning when user draws
+    UIPanGestureRecognizer* panGesture = [UIPanGestureRecognizer new];
+    panGesture.cancelsTouchesInView = NO;
+    panGesture.delaysTouchesEnded = NO;
+    [self.tableView.panGestureRecognizer requireGestureRecognizerToFail:panGesture];
+    [containerView addGestureRecognizer:panGesture];
+    
+    // confirm button
+    UIButton *confirmButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    confirmButton.frame = CGRectMake(containerView.bounds.size.width-100-kSignatureViewBorderOffset, CGRectGetMaxY(_paintingView.frame), 100, 44);
+    [confirmButton setTitle:@"Confirm" forState:UIControlStateNormal];
+    [confirmButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    confirmButton.titleLabel.font = [UIFont systemFontOfSize:18.0];
+    confirmButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [confirmButton addTarget:self action:@selector(signatureConfirm) forControlEvents:UIControlEventTouchUpInside];
+    confirmButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    [containerView addSubview:confirmButton];
+    self.signConfirmButton = confirmButton;
+    
+    // erase button
+    UIButton *eraseButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    eraseButton.frame = CGRectMake(kSignatureViewBorderOffset, CGRectGetMaxY(_paintingView.frame), 100, 44);
+    [eraseButton setTitle:@"Erase" forState:UIControlStateNormal];
+    [eraseButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    eraseButton.titleLabel.font = [UIFont systemFontOfSize:18.0];
+    eraseButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [eraseButton addTarget:self action:@selector(signatureErase) forControlEvents:UIControlEventTouchUpInside];
+    eraseButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    [containerView addSubview:eraseButton];
+    self.signEraseButton = eraseButton;
+    
+    return containerView;
+}
+
+/**
+ *  sign confirm button tapped
+ */
+- (void)signatureConfirm {
+    if (![self.paintingView hasSignature] && self.oldSignatureView.image == nil) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Please, sign first" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [self generatePDF:^(NSData *data) {
+        [self sendPDF:data];
+    }];
+}
+
+/**
+ *  sign erase button tapped
+ */
+- (void)signatureErase {
+    [self.paintingView erase];
+    // deleted cached image
+    if (self.oldSignatureView.image) {
+        self.oldSignatureView.image = nil;
+        [ImageFileManager deleteImageWithID:_sampleRequest.objectId];
+    }
+}
+
+/**
+ *  generates PDF
+ *
+ *  @param onComplete completion handler
+ */
+- (void)generatePDF:(void (^)(NSData* data))onComplete {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        // prepare signature
+        UIImage* signature = [self createSignImage];
+        
+        // setup pdf context
+        NSMutableData* data = [NSMutableData new];
+        CGRect bounds = CGRectMake(0, 0, [Configurations pdfWidth], [Configurations pdfHeight]);
+        UIGraphicsBeginPDFContextToData(data, bounds, nil);
+        UIGraphicsBeginPDFPage();
+        
+        CGContextRef c = UIGraphicsGetCurrentContext();
+        UIColor* bgColor = [UIColor colorWithRed:247/255.0f green:247/255.0f blue:247/255.0f alpha:1.0f];
+        
+        // draw table
+        CGFloat padding = [Configurations pdfPadding];
+        NSDictionary* textAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:[Configurations pdfFontSize]],
+                                         NSForegroundColorAttributeName: [UIColor blackColor]};
+        CGFloat yOffset = padding;
+        for (NSArray* row in _sampleRequestDataRows) {
+            NSString *rowHeader = row[0];
+            NSString *rowValueData = row[2];
+            // header
+            [bgColor setFill];
+            CGRect headerRect = CGRectMake(0, yOffset, bounds.size.width, [Configurations pdfHeaderHeight]);
+            CGContextFillRect(c, headerRect);
+            headerRect.origin.x = padding;
+            headerRect.size.width -= padding*2;
+            headerRect.origin.y = yOffset + [Configurations pdfHeaderHeight]/2 - [rowHeader sizeWithAttributes:textAttributes].height/2;
+            [rowHeader drawInRect:headerRect withAttributes:textAttributes];
+            yOffset += headerRect.size.height;
+            // value
+            CGRect textRect = CGRectMake(padding, yOffset + [Configurations pdfRowHeight]/2-[rowValueData sizeWithAttributes:textAttributes].height/2, bounds.size.width-padding*2, [Configurations pdfRowHeight]);
+            [rowValueData drawInRect:textRect withAttributes:textAttributes];
+            yOffset += textRect.size.height;
+        }
+        
+        // draw signature
+        [signature drawAtPoint:CGPointMake(padding, MIN(bounds.size.height-signature.size.height, yOffset))];
+        
+        UIGraphicsEndPDFContext();
+        
+        if (onComplete)
+            onComplete(data);
+    });
+}
+
+/**
+ *  sends PDF to salesforce
+ *
+ *  @param data PDF data
+ */
+- (void)sendPDF:(NSData*)data {
+    NSString *b64 = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    
+    NSString* parentID = _sampleRequest.objectId;
+    NSDictionary *fields = @{
+                             @"Name": [Configurations pdfName],
+                             @"Body": b64,
+                             @"ParentId": parentID
+                             };
+    SFRestRequest* attachmentRequest = [[SFRestAPI sharedInstance] requestForCreateWithObjectType:@"Attachment" fields:fields];
+    
+    [[SFRestAPI sharedInstance] sendRESTRequest:attachmentRequest failBlock:^(NSError *e) {
+        NSLog(@"Error adding attachment");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        });
+    } completeBlock:^(id dict){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+            [self signatureErase];
+        });
+    }];
+}
+
+/**
+ *  gets current signature image
+ *
+ *  @return sign image
+ */
+- (UIImage*)createSignImage {
+    UIGraphicsBeginImageContext(self.paintingView.frame.size);
+    [self.paintingView drawViewHierarchyInRect:self.paintingView.bounds afterScreenUpdates:NO];
+    if (self.oldSignatureView.image)
+        [self.oldSignatureView.image drawInRect:self.paintingView.bounds];
+    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    // cache image
+    [ImageFileManager storeImage:image withID:_sampleRequest.objectId];
+    
+    return image;
 }
 
 - (void)pickerDone:(id) sender {
