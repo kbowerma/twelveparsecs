@@ -85,14 +85,6 @@ static CGFloat    const kProductDetailFontSize          = 13.0;
     self.navBarLabel.backgroundColor = [UIColor clearColor];
     self.navBarLabel.font = [UIFont systemFontOfSize:kNavBarTitleFontSize];
     self.navigationItem.titleView = self.navBarLabel;
-
-    // Navigation bar buttons
-    self.addButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add"] style:UIBarButtonItemStylePlain target:self action:@selector(addProduct)];
-    self.syncButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sync"] style:UIBarButtonItemStylePlain target:self action:@selector(syncUpDown)];
-    self.navigationItem.rightBarButtonItems = @[ self.syncButton, self.addButton ];
-    for (UIBarButtonItem *bbi in self.navigationItem.rightBarButtonItems) {
-        bbi.tintColor = [UIColor whiteColor];
-    }
 }
 
 #pragma mark - UITableView delegate methods
@@ -132,6 +124,10 @@ static CGFloat    const kProductDetailFontSize          = 13.0;
 }
 
 #pragma mark - Private methods
+
+- (void)add {
+    [self addProduct];
+}
 
 - (void)addProduct {
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kNavBarTitleText style:UIBarButtonItemStylePlain target:nil action:nil];

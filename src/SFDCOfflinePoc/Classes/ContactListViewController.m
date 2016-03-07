@@ -23,7 +23,6 @@
  */
 
 #import "ContactListViewController.h"
-#import "ActionsPopupController.h"
 #import "SObjectDataManager.h"
 #import "ContactSObjectDataSpec.h"
 #import "ContactSObjectData.h"
@@ -104,16 +103,7 @@ static NSUInteger const kColorCodesList[] = { 0x1abc9c,  0x2ecc71,  0x3498db,  0
     self.navBarLabel.textColor = [UIColor whiteColor];
     self.navBarLabel.backgroundColor = [UIColor clearColor];
     self.navBarLabel.font = [UIFont systemFontOfSize:kNavBarTitleFontSize];
-    self.navigationItem.titleView = self.navBarLabel;
-    
-    // Navigation bar buttons
-    self.addButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add"] style:UIBarButtonItemStylePlain target:self action:@selector(addContact)];
-    self.syncButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sync"] style:UIBarButtonItemStylePlain target:self action:@selector(syncUpDown)];
-    self.moreButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showOtherActions)];
-    self.navigationItem.rightBarButtonItems = @[ self.moreButton, self.syncButton, self.addButton ];
-    for (UIBarButtonItem *bbi in self.navigationItem.rightBarButtonItems) {
-        bbi.tintColor = [UIColor whiteColor];
-    }
+    self.navigationItem.titleView = self.navBarLabel;    
 }
 
 #pragma mark - UITableView delegate methods
@@ -154,6 +144,9 @@ static NSUInteger const kColorCodesList[] = { 0x1abc9c,  0x2ecc71,  0x3498db,  0
 
 #pragma mark - Private methods
 
+- (void)add {
+    [self addContact];
+}
 
 - (void)addContact {
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kNavBarTitleText style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -161,22 +154,6 @@ static NSUInteger const kColorCodesList[] = { 0x1abc9c,  0x2ecc71,  0x3498db,  0
         [self.dataMgr refreshLocalData];
     }];
     [self.navigationController pushViewController:detailVc animated:YES];
-}
-
-- (void)showOtherActions {
-    if([self.popOverController isPopoverVisible]){
-        [self.popOverController dismissPopoverAnimated:YES];
-        return;
-    }
-    
-    ActionsPopupController *popoverContent = [[ActionsPopupController alloc] initWithAppViewController:self];
-    popoverContent.preferredContentSize = CGSizeMake(260,130);
-    self.popOverController = [[WYPopoverController alloc] initWithContentViewController:popoverContent];
-    
-    
-    [self.popOverController presentPopoverFromBarButtonItem:self.moreButton
-                                   permittedArrowDirections:WYPopoverArrowDirectionAny
-                                                   animated:YES];
 }
 
 - (NSString *)formatNameFromContact:(ContactSObjectData *)contact {

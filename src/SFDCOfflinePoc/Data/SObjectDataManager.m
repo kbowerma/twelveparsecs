@@ -27,9 +27,11 @@
 #import <SmartStore/SFSmartStore.h>
 #import <SmartStore/SFQuerySpec.h>
 #import <SalesforceSDKCore/SFUserAccountManager.h>
+#import <SalesforceSDKCore/SFSDKReachability.h>
 
 // Will go away once we are done refactoring SFSyncTarget
 #import <SmartSync/SFSoqlSyncDownTarget.h>
+
 
 static NSUInteger kMaxQueryPageSize = 1000;
 static NSUInteger kSyncLimit = 10000;
@@ -79,6 +81,7 @@ static char* const kSearchFilterQueueName = "com.salesforce.SFDCOfflinePoc.searc
         [self registerSoup];
     }
     
+
     __weak SObjectDataManager *weakSelf = self;
     SFSyncSyncManagerUpdateBlock updateBlock = ^(SFSyncState* sync) {
         if ([sync isDone] || [sync hasFailed]) {
@@ -87,7 +90,8 @@ static char* const kSearchFilterQueueName = "com.salesforce.SFDCOfflinePoc.searc
         }
     };
 
-    [self.store clearSoup:self.dataSpec.soupName];
+    if ([[SFSDKReachability reachabilityForInternetConnection] currentReachabilityStatus] != SFSDKReachabilityNotReachable)
+        [self.store clearSoup:self.dataSpec.soupName];
     
     // if (self.syncDownId == 0) {
         // first time
@@ -198,6 +202,7 @@ static char* const kSearchFilterQueueName = "com.salesforce.SFDCOfflinePoc.searc
 - (void)createLocalData:(SObjectData *)newData {
     [newData updateSoupForFieldName:kSyncManagerLocal fieldValue:@YES];
     [newData updateSoupForFieldName:kSyncManagerLocallyCreated fieldValue:@YES];
+    newData.objectId = [[NSUUID UUID] UUIDString];
     [self.store upsertEntries:@[ newData.soupDict ] toSoup:[[newData class] dataSpec].soupName];
 }
 

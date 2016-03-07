@@ -89,6 +89,7 @@ extern NSString * const kSFSyncStateMergeModeLeaveIfChanged;
 @property (nonatomic) NSInteger totalSize;
 @property (nonatomic) SFSyncStateMergeMode mergeMode;
 @property (nonatomic) long long maxTimeStamp;
+@property (nonatomic, strong) NSError* syncError;
 
 /** Setup soup that keeps track of sync operations
  */

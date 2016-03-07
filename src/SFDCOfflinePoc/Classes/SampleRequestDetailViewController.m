@@ -5,6 +5,8 @@
 //  Created by PAULO VITOR MAGACHO DA SILVA on 1/24/16.
 //  Updated by TCCODER on 1/31/16.
 //  -- added signature view & appropriate logic
+//  Updated by TCCODER on 2/09/16.
+//  -- removed image storing; implemented SmartStore sync
 //  Copyright © 2016 Topcoder Inc. All rights reserved.
 //
 
@@ -13,10 +15,11 @@
 #import "SampleRequestSObjectData.h"
 #import "ProductSObjectData.h"
 #import "ContactSObjectData.h"
+#import "AttachmentSObjectData.h"
 #import "PaintingView.h"
 #import "MBProgressHUD.h"
 #import "Configurations.h"
-#import "ImageFileManager.h"
+#import "SFSDKReachability.h"
 
 #define kTagContact 1000
 #define kTagProduct 1001
@@ -49,7 +52,6 @@
 // View / UI properties
 @property (nonatomic, strong) UIPickerView *pickerView;
 @property (nonatomic, strong) PaintingView *paintingView;
-@property (nonatomic, strong) UIImageView *oldSignatureView;
 @property (nonatomic, strong) UIButton *signEraseButton;
 @property (nonatomic, strong) UIButton *signConfirmButton;
 @property (nonatomic, strong) UILabel *signHeaderLabel;
@@ -94,8 +96,8 @@
 - (void)loadView {
     [super loadView];
 
-    self.contactObject = self.isNewSampleRequest ? [self.contactMgr.dataRows objectAtIndex:0] : [self.contactMgr findById:self.sampleRequest.contactId];
-    self.productObject = self.isNewSampleRequest ? [self.productMgr.dataRows objectAtIndex:0] : [self.productMgr findById:self.sampleRequest.productId];
+    self.contactObject = self.isNewSampleRequest ? [self.contactMgr.dataRows firstObject] : [self.contactMgr findById:self.sampleRequest.contactId];
+    self.productObject = self.isNewSampleRequest ? [self.productMgr.dataRows firstObject] : [self.productMgr findById:self.sampleRequest.productId];
 
     self.dataRows = [self dataRowsFromSampleRequest];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -351,6 +353,7 @@
         // Buttons will already be set for new contact case.
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelEditSampleRequest)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveSampleRequest)];
+        [self signatureErase];
     }
     [self.tableView reloadData];
     __weak SampleRequestDetailViewController *weakSelf = self;
@@ -482,8 +485,6 @@
     borderView.layer.borderWidth = 2;
     borderView.userInteractionEnabled = NO;
     borderView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    borderView.image = [ImageFileManager loadImageWithID:_sampleRequest.objectId];
-    self.oldSignatureView = borderView;
     [containerView addSubview:borderView];
     containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
@@ -525,7 +526,7 @@
  *  sign confirm button tapped
  */
 - (void)signatureConfirm {
-    if (![self.paintingView hasSignature] && self.oldSignatureView.image == nil) {
+    if (![self.paintingView hasSignature]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Please, sign first" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
         return;
@@ -543,11 +544,6 @@
  */
 - (void)signatureErase {
     [self.paintingView erase];
-    // deleted cached image
-    if (self.oldSignatureView.image) {
-        self.oldSignatureView.image = nil;
-        [ImageFileManager deleteImageWithID:_sampleRequest.objectId];
-    }
 }
 
 /**
@@ -608,29 +604,126 @@
  *  @param data PDF data
  */
 - (void)sendPDF:(NSData*)data {
+    // prepare attachment
     NSString *b64 = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     
-    NSString* parentID = _sampleRequest.objectId;
-    NSDictionary *fields = @{
-                             @"Name": [Configurations pdfName],
-                             @"Body": b64,
-                             @"ParentId": parentID
-                             };
-    SFRestRequest* attachmentRequest = [[SFRestAPI sharedInstance] requestForCreateWithObjectType:@"Attachment" fields:fields];
+    AttachmentSObjectData* att = [[AttachmentSObjectData alloc] init];
     
-    [[SFRestAPI sharedInstance] sendRESTRequest:attachmentRequest failBlock:^(NSError *e) {
-        NSLog(@"Error adding attachment");
+    self.sampleRequestUpdated = YES;
+    [self.dataMgr dataLocallyCreated:_sampleRequest] ? [self.dataMgr createLocalData:_sampleRequest] : [self.dataMgr updateLocalData:_sampleRequest];
+    
+    NSString* parentID = _sampleRequest.objectId;
+    NSDateFormatter* dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"YYYY-MM-dd'T'HH:mm:ss";
+    att.name = [[[Configurations pdfName] stringByAppendingFormat:@"_%@", [dateFormatter stringFromDate:[NSDate date]]] stringByAppendingPathExtension:@"pdf"];
+    att.body = b64;
+    att.parentId = parentID;
+    
+    [self.attachmentMgr createLocalData:att];
+    
+    
+    // check if connected
+    if ([[SFSDKReachability reachabilityForInternetConnection] currentReachabilityStatus] == SFSDKReachabilityNotReachable) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please sync when Internet connection is available" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [self.navigationController popViewControllerAnimated:YES];
         });
-    } completeBlock:^(id dict){
+        return;
+    }
+
+    // count changes
+    [self.attachmentMgr refreshLocalData];
+    NSUInteger count = 0;
+    for (SObjectData* data in self.attachmentMgr.dataRows)
+        if ([self.attachmentMgr dataHasLocalChanges:data])
+            ++count;
+
+    // prepare IDs for mapping after requests synced
+    NSMutableDictionary* addedRequestsEntryIDs = [NSMutableDictionary new];
+    for (SampleRequestSObjectData* data in self.dataMgr.dataRows)
+        if ([self.dataMgr dataLocallyCreated:data]) {
+            addedRequestsEntryIDs[data.objectId] = data.soupEntryId;
+        }
+    
+    // sync requests
+    typeof(self) __weak weakSelf = self;
+    [self.dataMgr updateRemoteData:^(SFSyncState *syncProgressDetails) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-            [self signatureErase];
+            if ([syncProgressDetails isDone]) {
+                
+                [weakSelf.dataMgr refreshLocalData];
+                // updated IDs for created requests
+                for (AttachmentSObjectData* data in self.attachmentMgr.dataRows)
+                    if ([self.attachmentMgr dataHasLocalChanges:data] && addedRequestsEntryIDs[data.parentId]) {
+                        for (SampleRequestSObjectData* req in weakSelf.dataMgr.dataRows) {
+                            if ([req.soupEntryId isEqual:addedRequestsEntryIDs[data.parentId]]) {
+                                data.parentId = req.objectId;
+                                [self.attachmentMgr updateLocalData:data];
+                                break;
+                            }
+                        }
+                    }
+                
+                [weakSelf.dataMgr refreshRemoteData];
+                // upload attachments
+                [weakSelf.attachmentMgr updateRemoteData:^(SFSyncState *sync) {
+                    if ([sync isDone]) {
+                        [weakSelf.attachmentMgr refreshLocalData];
+                        [weakSelf.attachmentMgr refreshRemoteData];
+                        [weakSelf.dataMgr refreshLocalData];
+                        [weakSelf.dataMgr refreshRemoteData];
+                        NSString* msg = [NSString stringWithFormat:@"Uploaded %d attachment(s)", (int)count];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                            [weakSelf showAlert:msg title:@"Success"];
+                            [self.navigationController popViewControllerAnimated:YES];
+                        });
+                    } else if ([sync hasFailed]) {
+                        NSString* msg = sync.syncError.code == 400 ? @"Signed sample request has been remotely deleted" : @"Sync failed, try again later";
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                            [weakSelf showAlert:msg title:@"Error"];
+                        });
+                    } else {
+                        NSString* msg = [NSString stringWithFormat:@"Unexpected status: %@", [SFSyncState syncStatusToString:sync.status]];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                            [weakSelf showAlert:msg title:@"Error"];
+                        });
+                    }
+                    
+                }];
+                
+            } else if ([syncProgressDetails hasFailed]) {
+                NSString* msg = @"Sync failed, try again later";
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                    [weakSelf showAlert:msg title:@"Error"];
+                });
+            } else {
+                NSString* msg = [NSString stringWithFormat:@"Unexpected status: %@", [SFSyncState syncStatusToString:syncProgressDetails.status]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                    [weakSelf showAlert:msg title:@"Error"];
+                });
+            }
         });
     }];
+    
+
+}
+
+- (void)showAlert:(NSString*)msg title:(NSString*)title {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 /**
@@ -641,13 +734,8 @@
 - (UIImage*)createSignImage {
     UIGraphicsBeginImageContext(self.paintingView.frame.size);
     [self.paintingView drawViewHierarchyInRect:self.paintingView.bounds afterScreenUpdates:NO];
-    if (self.oldSignatureView.image)
-        [self.oldSignatureView.image drawInRect:self.paintingView.bounds];
     UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    // cache image
-    [ImageFileManager storeImage:image withID:_sampleRequest.objectId];
-    
     return image;
 }
 

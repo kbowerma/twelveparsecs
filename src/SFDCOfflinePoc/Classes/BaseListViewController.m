@@ -26,6 +26,7 @@
 #import "ActionsPopupController.h"
 #import "SObjectDataManager.h"
 #import "WYPopoverController.h"
+#import "TabBarViewController.h"
 #import <SalesforceSDKCore/SFDefaultUserManagementViewController.h>
 #import <SmartStore/SFSmartStoreInspectorViewController.h>
 #import <SalesforceSDKCore/SFAuthenticationManager.h>
@@ -124,6 +125,16 @@ static CGFloat    const kToastMessageFontSize           = 16.0;
     [self.view addSubview:self.toastView];
 
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    // Navigation bar buttons
+    self.addButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add"] style:UIBarButtonItemStylePlain target:self action:@selector(add)];
+    self.syncButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sync"] style:UIBarButtonItemStylePlain target:self action:@selector(syncUpDown)];
+    self.moreButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showOtherActions)];
+    self.navigationItem.rightBarButtonItems = @[ self.moreButton, self.syncButton, self.addButton ];
+    for (UIBarButtonItem *bbi in self.navigationItem.rightBarButtonItems) {
+        bbi.tintColor = [UIColor whiteColor];
+    }
+
 }
 
 - (void)viewWillLayoutSubviews {
@@ -281,6 +292,10 @@ static CGFloat    const kToastMessageFontSize           = 16.0;
     }
 }
 
+- (void)add {
+    // override
+}
+
 - (void)syncUpDown {
     [self showToast:@"Syncing with Salesforce"];
     self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -299,6 +314,22 @@ static CGFloat    const kToastMessageFontSize           = 16.0;
             }
         });
     }];
+}
+
+- (void)showOtherActions {
+    if([self.popOverController isPopoverVisible]){
+        [self.popOverController dismissPopoverAnimated:YES];
+        return;
+    }
+    
+    ActionsPopupController *popoverContent = [[ActionsPopupController alloc] initWithAppViewController:self];
+    popoverContent.preferredContentSize = CGSizeMake(260,130);
+    self.popOverController = [[WYPopoverController alloc] initWithContentViewController:popoverContent];
+    
+    
+    [self.popOverController presentPopoverFromBarButtonItem:self.moreButton
+                                   permittedArrowDirections:WYPopoverArrowDirectionAny
+                                                   animated:YES];
 }
 
 - (void)reloadData {
@@ -335,6 +366,8 @@ static CGFloat    const kToastMessageFontSize           = 16.0;
         [self presentViewController:umvc animated:YES completion:NULL];
     } else if ([text isEqualToString:kActionDbInspector]) {
         [[[SFSmartStoreInspectorViewController alloc] initWithStore:self.dataMgr.store] present:self];
+    } else if ([text isEqualToString:kActionChangePin]) {
+        [(TabBarViewController*)self.tabBarController configurePin];
     }
 }
 
@@ -432,5 +465,19 @@ static CGFloat    const kToastMessageFontSize           = 16.0;
         }
     }
 }
+
+#pragma mark - offline/online
+
+- (void)showOffline {
+    self.syncButton.image = [UIImage imageNamed:@"no-internet"];
+    self.syncButton.enabled = NO;
+}
+
+- (void)showOnline {
+    self.syncButton.image = [UIImage imageNamed:@"sync"];
+    self.syncButton.enabled = YES;
+    [self syncUpDown];
+}
+
 
 @end

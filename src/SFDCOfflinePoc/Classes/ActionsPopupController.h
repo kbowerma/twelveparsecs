@@ -24,19 +24,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class ContactListViewController;
+@class BaseListViewController;
 
 
 //action constants
 extern NSString *const kActionLogout;
 extern NSString *const kActionSwitchUser;
 extern NSString *const kActionDbInspector;
+extern NSString *const kActionChangePin;
 
 @interface ActionsPopupController : UITableViewController
 
 @property (nonatomic, strong) NSArray *actions;
-@property (nonatomic, strong) ContactListViewController *appViewController;
+@property (nonatomic, strong) BaseListViewController *appViewController;
 
-- (id)initWithAppViewController:(ContactListViewController *)appViewController;
+- (id)initWithAppViewController:(BaseListViewController *)appViewController;
 
 @end

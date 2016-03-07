@@ -13,8 +13,10 @@
 	<key>pdfHeaderHeight</key>
 	<integer>30</integer>
 	<key>pdfName</key>
-	<string>Receipt.pdf</string>
+	<string>Receipt</string>
 	<key>pdfFontSize</key>
 	<integer>20</integer>
+	<key>maxAttempts</key>
+	<integer>3</integer>
 </dict>
 </plist>

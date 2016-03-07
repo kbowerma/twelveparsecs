@@ -67,4 +67,12 @@
  */
 + (CGFloat)pdfFontSize;
 
+/**
+ *  max number of failed pin attempts
+ *
+ *  @return max number of failed pin attempts
+ */
++ (NSInteger)maxAttempts;
+
+
 @end

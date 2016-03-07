@@ -10,4 +10,9 @@
 
 @interface TabBarViewController : UITabBarController<UIAlertViewDelegate>
 
+/**
+ *  starts pin configuration
+ */
+- (void)configurePin;
+
 @end

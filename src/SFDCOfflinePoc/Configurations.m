@@ -46,5 +46,8 @@ static NSDictionary *config;
     return [config[@"pdfFontSize"] floatValue];
 }
 
++ (NSInteger)maxAttempts {
+    return [config[@"maxAttempts"] integerValue];
+}
 
 @end
