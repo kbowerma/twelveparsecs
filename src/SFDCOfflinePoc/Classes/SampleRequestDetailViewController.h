@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) SObjectDataManager *contactMgr;
 @property (nonatomic, strong) SObjectDataManager *productMgr;
+@property (nonatomic, strong) SObjectDataManager *attachmentMgr;
 
 - (id)initForNewSampleRequestWithDataManager:(SObjectDataManager *)dataMgr saveBlock:(void (^)(void))saveBlock;
 - (id)initWithSampleRequest:(SampleRequestSObjectData *)sampleRequest dataManager:(SObjectDataManager *)dataMgr saveBlock:(void (^)(void))saveBlock;

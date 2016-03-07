@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		0C8B685E1C5EADAC00758347 /* Configurations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8B685D1C5EADAC00758347 /* Configurations.m */; };
 		0C8B68601C5EADB400758347 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C8B685F1C5EADB400758347 /* config.plist */; };
-		0C8B68631C60011C00758347 /* ImageFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8B68621C60011C00758347 /* ImageFileManager.m */; };
 		0C8F65DC1C5D4BD6009C3AC1 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8F65D11C5D4BD6009C3AC1 /* PaintingView.m */; };
 		0C8F65DD1C5D4BD6009C3AC1 /* fileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8F65D51C5D4BD6009C3AC1 /* fileUtil.m */; };
 		0C8F65DE1C5D4BD6009C3AC1 /* shaderUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8F65D61C5D4BD6009C3AC1 /* shaderUtil.c */; };
 		0C8F65DF1C5D4BD6009C3AC1 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8F65D81C5D4BD6009C3AC1 /* Particle.png */; };
 		0C8F65E01C5D4BD6009C3AC1 /* point.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 0C8F65DA1C5D4BD6009C3AC1 /* point.fsh */; };
 		0C8F65E11C5D4BD6009C3AC1 /* point.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 0C8F65DB1C5D4BD6009C3AC1 /* point.vsh */; };
+		0CD39ADD1C6A3165005530FA /* AttachmentSObjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD39ADC1C6A3165005530FA /* AttachmentSObjectData.m */; };
+		0CD39AE01C6A3174005530FA /* AttachmentSObjectDataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD39ADF1C6A3174005530FA /* AttachmentSObjectDataSpec.m */; };
 		4B365D251C564174005EBCAD /* ActionsPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CF71C564174005EBCAD /* ActionsPopupController.m */; };
 		4B365D261C564174005EBCAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CF91C564174005EBCAD /* AppDelegate.m */; };
 		4B365D271C564174005EBCAD /* BaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B365CFB1C564174005EBCAD /* BaseListViewController.m */; };
@@ -48,8 +49,6 @@
 		0C8B685C1C5EADAC00758347 /* Configurations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configurations.h; sourceTree = "<group>"; };
 		0C8B685D1C5EADAC00758347 /* Configurations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configurations.m; sourceTree = "<group>"; };
 		0C8B685F1C5EADB400758347 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
-		0C8B68611C60011C00758347 /* ImageFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFileManager.h; sourceTree = "<group>"; };
-		0C8B68621C60011C00758347 /* ImageFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFileManager.m; sourceTree = "<group>"; };
 		0C8F65D01C5D4BD6009C3AC1 /* PaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingView.h; sourceTree = "<group>"; };
 		0C8F65D11C5D4BD6009C3AC1 /* PaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingView.m; sourceTree = "<group>"; };
 		0C8F65D31C5D4BD6009C3AC1 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
@@ -60,6 +59,10 @@
 		0C8F65D81C5D4BD6009C3AC1 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 		0C8F65DA1C5D4BD6009C3AC1 /* point.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.fsh; sourceTree = "<group>"; };
 		0C8F65DB1C5D4BD6009C3AC1 /* point.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.vsh; sourceTree = "<group>"; };
+		0CD39ADB1C6A3165005530FA /* AttachmentSObjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentSObjectData.h; sourceTree = "<group>"; };
+		0CD39ADC1C6A3165005530FA /* AttachmentSObjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentSObjectData.m; sourceTree = "<group>"; };
+		0CD39ADE1C6A3174005530FA /* AttachmentSObjectDataSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentSObjectDataSpec.h; sourceTree = "<group>"; };
+		0CD39ADF1C6A3174005530FA /* AttachmentSObjectDataSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentSObjectDataSpec.m; sourceTree = "<group>"; };
 		4B365CF61C564174005EBCAD /* ActionsPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionsPopupController.h; sourceTree = "<group>"; };
 		4B365CF71C564174005EBCAD /* ActionsPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionsPopupController.m; sourceTree = "<group>"; };
 		4B365CF81C564174005EBCAD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -219,6 +222,10 @@
 				4B365D161C564174005EBCAD /* SampleRequestSObjectData.m */,
 				4B365D171C564174005EBCAD /* SampleRequestSObjectDataSpec.h */,
 				4B365D181C564174005EBCAD /* SampleRequestSObjectDataSpec.m */,
+				0CD39ADB1C6A3165005530FA /* AttachmentSObjectData.h */,
+				0CD39ADC1C6A3165005530FA /* AttachmentSObjectData.m */,
+				0CD39ADE1C6A3174005530FA /* AttachmentSObjectDataSpec.h */,
+				0CD39ADF1C6A3174005530FA /* AttachmentSObjectDataSpec.m */,
 				4B365D191C564174005EBCAD /* SObjectData+Internal.h */,
 				4B365D1A1C564174005EBCAD /* SObjectData.h */,
 				4B365D1B1C564174005EBCAD /* SObjectData.m */,
@@ -228,8 +235,6 @@
 				4B365D1F1C564174005EBCAD /* SObjectDataManager.m */,
 				4B365D201C564174005EBCAD /* SObjectDataSpec.h */,
 				4B365D211C564174005EBCAD /* SObjectDataSpec.m */,
-				0C8B68611C60011C00758347 /* ImageFileManager.h */,
-				0C8B68621C60011C00758347 /* ImageFileManager.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -422,9 +427,9 @@
 				0C8F65DE1C5D4BD6009C3AC1 /* shaderUtil.c in Sources */,
 				4B365D311C564174005EBCAD /* ContactSObjectDataSpec.m in Sources */,
 				4B365D251C564174005EBCAD /* ActionsPopupController.m in Sources */,
-				0C8B68631C60011C00758347 /* ImageFileManager.m in Sources */,
 				4B365D291C564174005EBCAD /* ContactListViewController.m in Sources */,
 				4BDBFEE31C56C78000F1535A /* InitialViewController.m in Sources */,
+				0CD39AE01C6A3174005530FA /* AttachmentSObjectDataSpec.m in Sources */,
 				4B365D331C564174005EBCAD /* ProductSObjectDataSpec.m in Sources */,
 				4B365D2C1C564174005EBCAD /* ProductsListViewController.m in Sources */,
 				4B365D351C564174005EBCAD /* SampleRequestSObjectDataSpec.m in Sources */,
@@ -447,6 +452,7 @@
 				0C8B685E1C5EADAC00758347 /* Configurations.m in Sources */,
 				4B365D381C564174005EBCAD /* SObjectDataManager.m in Sources */,
 				4B365D281C564174005EBCAD /* ContactDetailViewController.m in Sources */,
+				0CD39ADD1C6A3165005530FA /* AttachmentSObjectData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

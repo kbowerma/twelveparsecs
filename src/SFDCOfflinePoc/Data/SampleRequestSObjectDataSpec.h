@@ -19,6 +19,7 @@ extern NSString * const kSampleRequestDeliveryDateField;
 extern NSString * const kSampleRequestQuantityField;
 extern NSString * const kSampleRequestStatusField;
 extern NSString * const kSampleRequestAuthorizedUsersField;
+extern NSString * const kSampleRequestAttachmentsField;
 
 @interface SampleRequestSObjectDataSpec : SObjectDataSpec
 

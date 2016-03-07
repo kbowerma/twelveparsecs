@@ -14,11 +14,6 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>MBProgressHUD.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
-		</dict>
 		<key>Pods-SFDCOfflinePoc.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -77,16 +72,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>11A54403F90328EAAEA32AC4FF07DDE7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>177E4AD2A1778302D0DC8137C715AB9C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1A8FA80064BF168790FE6C7826DBF193</key>
 		<dict>
 			<key>primary</key>
@@ -102,27 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4EBA25A5925DA95BD950047AB2AAEF02</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>52D24BB6E8CB4EE7B139247AF646C3A9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6341E3AAD49D14737FED4BDBE4159F3B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6FAF630773B4CA744470D86334B305CD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>75EE1703CF0059A5E1DCC7F704E004BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,32 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8C90B8F0EF87A7BAF4C98E8B3C189A48</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>90AE4AB47F6BA7FE0B5E1A083AEAF67C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F8A670C4E2BC6AFC6C5593AA740B4BC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A45D0E4444B704BA1AB84CC9B30FEC75</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E014A9ADA29B1A911FB7F9B2F34B9C9C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
 		<dict>
 			<key>primary</key>
 			<true/>

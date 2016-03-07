@@ -21,6 +21,8 @@ NSString * const kSampleRequestQuantityField     = @"Quantity__c";
 NSString * const kSampleRequestStatusField       = @"Status__c";
 NSString * const kSampleRequestAuthorizedUsersQuery = @"(SELECT User__r.Name, User__c FROM Authorized_Users__r)";
 NSString * const kSampleRequestAuthorizedUsersField = @"Authorized_Users__r";
+NSString * const kSampleRequestAttachmentsQuery = @"(SELECT Attachment.Id, Attachment.Name FROM Attachments)";
+NSString * const kSampleRequestAttachmentsField = @"Attachments";
 
 @implementation SampleRequestSObjectDataSpec
 
@@ -36,13 +38,14 @@ NSString * const kSampleRequestAuthorizedUsersField = @"Authorized_Users__r";
                                    [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestDeliveryDateField searchable:NO],
                                    [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestQuantityField searchable:NO],
                                    [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestStatusField searchable:NO],
-                                   [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestAuthorizedUsersQuery searchable:NO]
+                                   [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestAuthorizedUsersQuery searchable:NO],
+                                   [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestAttachmentsQuery searchable:NO]
                                    ];
     NSArray *updateObjectFieldSpecs = @[ [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestContactField searchable:NO],
                                    [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestProductField searchable:NO],
                                    [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestDeliveryDateField searchable:NO],
                                    [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestQuantityField searchable:NO],
-                                   [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestStatusField searchable:NO]
+                                   [[SObjectDataFieldSpec alloc] initWithFieldName:kSampleRequestStatusField searchable:NO],
                                    ];
 
     // Any searchable fields would likely require index specs, if you're searching directly against SmartStore.

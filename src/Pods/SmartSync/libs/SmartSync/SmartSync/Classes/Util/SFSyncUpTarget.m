@@ -184,7 +184,9 @@ static NSString * const kSFSyncUpTargetTypeCustom = @"custom";
 - (NSArray*)getIdsOfRecordsToSyncUp:(SFSmartSyncSyncManager*)syncManager
                            soupName:(NSString*)soupName
 {
-    return [[syncManager getDirtyRecordIds:soupName idField:SOUP_ENTRY_ID] allObjects];
+    return [[[syncManager getDirtyRecordIds:soupName idField:SOUP_ENTRY_ID] allObjects] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 compare:obj2];
+    }];
 }
 
 

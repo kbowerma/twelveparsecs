@@ -200,6 +200,7 @@ static NSMutableDictionary *syncMgrList = nil;
     
     SyncFailBlock failSync = ^(NSString* message, NSError* error) {
         [weakSelf log:SFLogLevelError format:@"Sync type:%@ id:%d FAILED cause:%@ error:%@", [SFSyncState syncTypeToString:sync.type], sync.syncId, message, error];
+        sync.syncError = error;
         updateSync(kSFSyncStateStatusFailed, kSyncManagerUnchanged, kSyncManagerUnchanged, kSyncManagerUnchanged);
     };
     
@@ -558,6 +559,19 @@ static NSMutableDictionary *syncMgrList = nil;
         completeBlockUpdate(d);
     };
     
+    // Create failure handler
+    SFSyncUpTargetErrorBlock failBlockCreate = ^ (NSError* err){
+        // Handling remotely deleted records
+        if (err.code == 400) {
+            [self.store removeEntries:@[soupEntryId] fromSoup:soupName];
+            // fail sync and notify user
+            failBlock(err);
+        }
+        else {
+            failBlock(err);
+        }
+    };
+    
     // Update failure handler
     SFSyncUpTargetErrorBlock failBlockUpdate = ^ (NSError* err){
         // Handling remotely deleted records
@@ -588,7 +602,7 @@ static NSMutableDictionary *syncMgrList = nil;
     
     switch(action) {
         case SFSyncUpTargetActionCreate:
-            [target createOnServer:objectType fields:fields completionBlock:completeBlockCreate failBlock:failBlock];
+            [target createOnServer:objectType fields:fields completionBlock:completeBlockCreate failBlock:failBlockCreate];
             break;
         case SFSyncUpTargetActionUpdate:
             [target updateOnServer:objectType objectId:objectId fields:fields completionBlock:completeBlockUpdate failBlock:failBlockUpdate];

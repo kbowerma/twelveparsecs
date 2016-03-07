@@ -10,6 +10,7 @@
 #import "SampleRequestSObjectDataSpec.h"
 #import "SObjectData+Internal.h"
 #import <SmartSync/SFSmartSyncConstants.h>
+#import <SmartStore/SmartStore.h>
 
 @implementation SampleRequestSObjectData
 
@@ -87,12 +88,25 @@
     [self updateSoupForFieldName:kSampleRequestAuthorizedUsersField fieldValue:authorizedUsers];
 }
 
+- (NSArray *)attachments {
+    return [self nonNullFieldValue:kSampleRequestAttachmentsField];
+}
+
+- (void)setAttachments:(NSArray *)attachment {
+    [self updateSoupForFieldName:kSampleRequestAttachmentsField fieldValue:attachment];
+}
+
+
 - (NSArray *) userRecords {
     int totalSize = [[self.authorizedUsers objectForKey:@"totalSize"] intValue];
     if (totalSize > 0) {
         return [self.authorizedUsers objectForKey:@"records"];
     }
     return nil;
+}
+
+- (NSNumber *)soupEntryId {
+    return [self nonNullFieldValue:SOUP_ENTRY_ID];
 }
 
 @end
