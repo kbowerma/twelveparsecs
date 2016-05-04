@@ -1,6 +1,6 @@
 # Introduction
 
-This application is a Proof of Concept to show how Salesforce SmartSync can be used to handle offline data and synchronization with salesforce server.
+This application is a Proof of Concept to show how Salesforce SmartSync can be used to handle offline data and synchronization with salesforce server, and to capture a finger signature.    This version is built in Natively for IoS using objective C and [this repo](https://github.com/kbowerma/kesselrun) is the exact same soltuion using ionic hybrid framework.
 
 ## Requirements
 
